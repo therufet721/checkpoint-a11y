@@ -1,0 +1,9 @@
+# Default owners
+*                                       @northwind/web
+# Design system components
+examples/demo-shop/src/components/      @northwind/design-system
+# Checkout and payments
+examples/demo-shop/src/pages/Checkout*  @northwind/payments
+# Platform packages
+packages/                               @northwind/platform
+apps/                                   @northwind/platform

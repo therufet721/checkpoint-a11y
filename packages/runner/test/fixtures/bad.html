@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bad page</title>
+<style>
+  body { margin: 0; font-family: sans-serif; }
+  header { position: sticky; top: 0; height: 120px; background: #222; color: #fff; z-index: 10; }
+  .no-ring:focus { outline: none; }
+  .wide { width: 900px; height: 20px; background: #eee; }
+  .clicky { cursor: pointer; padding: 8px; background: #ddd; }
+  .spacer { height: 1500px; }
+  .error { color: #b00020; }
+</style>
+</head>
+<body>
+<header data-a11y-cmp="SiteHeader" data-a11y-src="src/SiteHeader.tsx:3">
+  <a href="/help">Help</a>
+  <button data-a11y-cmp="IconButton" data-a11y-src="src/ui/IconButton.tsx:5"><svg width="16" height="16"></svg></button>
+</header>
+<main>
+  <h1>Bad page</h1>
+  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="10" height="10">
+  <button class="no-ring" data-a11y-cmp="GhostButton" data-a11y-src="packages/ui/src/GhostButton.tsx:12">Ghost</button>
+  <div class="clicky" onclick="void 0">Click me</div>
+  <form>
+    <label for="email">Email</label>
+    <input id="email" aria-invalid="true">
+    <label for="pw">Password</label>
+    <input id="pw" type="password" onpaste="return false">
+  </form>
+  <div class="wide">wide</div>
+  <div class="spacer"></div>
+  <a href="#bottom" id="bottom">Bottom link</a>
+</main>
+<div data-a11y-cmp="CookieBanner" data-a11y-src="src/CookieBanner.tsx:8" style="position:fixed;left:0;right:0;bottom:0;height:140px;background:#ffd;z-index:5">We use cookies <button>OK</button></div>
+<div role="dialog" aria-label="Promo" style="position:fixed;right:0;top:200px;width:200px;z-index:20;background:#fff;border:1px solid">
+  <p>Promo</p><button>Close promo</button>
+</div>
+</body>
+</html>

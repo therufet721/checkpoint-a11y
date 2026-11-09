@@ -1,0 +1,42 @@
+{
+  "name": "@checkpoint-a11y/core",
+  "version": "0.1.0",
+  "description": "Shared types, standards mapping, fingerprinting, baseline diff and report rendering for Checkpoint A11y.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/checkpoint-a11y.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/therufet721/checkpoint-a11y#readme",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "playwright",
+    "ci",
+    "eaa"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

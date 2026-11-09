@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Good modal</title>
+<style>:focus-visible { outline: 3px solid #0050b3; } button { padding: 8px; }</style></head>
+<body><main><h1>Good modal</h1><button id="open">Open</button><a href="/x">Behind</a></main>
+<dialog id="d" aria-labelledby="dt"><h2 id="dt">Cart</h2><button>Checkout</button> <button id="close">Close</button></dialog>
+<script>document.getElementById('open').onclick = () => { const d = document.getElementById('d'); d.showModal(); d.querySelector('button').focus(); };</script>
+</body></html>

@@ -1,0 +1,51 @@
+{
+  "name": "@checkpoint-a11y/babel-plugin",
+  "version": "0.1.0",
+  "description": "Stamps React component roots with data-a11y-cmp and data-a11y-src so Checkpoint A11y can attribute issues to source.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@types/babel__core": "^7.20.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/checkpoint-a11y.git",
+    "directory": "packages/babel-plugin"
+  },
+  "homepage": "https://github.com/therufet721/checkpoint-a11y#readme",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "playwright",
+    "ci",
+    "eaa"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

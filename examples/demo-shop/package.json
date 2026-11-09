@@ -1,0 +1,30 @@
+{
+  "name": "demo-shop",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "A small shop with deliberate accessibility bugs, used to demo and test Checkpoint A11y end to end.",
+  "scripts": {
+    "dev": "vite",
+    "build": "CHECKPOINT_A11Y=1 vite build",
+    "build:regression": "CHECKPOINT_A11Y=1 VITE_REGRESSION=1 vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "a11y": "checkpoint-a11y run",
+    "a11y:baseline": "checkpoint-a11y run --update-baseline",
+    "demo": "node scripts/demo.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@checkpoint-a11y/babel-plugin": "workspace:*",
+    "@checkpoint-a11y/runner": "workspace:*",
+    "@babel/core": "^7.28.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^7.1.0"
+  },
+  "license": "Apache-2.0"
+}

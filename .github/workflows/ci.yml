@@ -1,0 +1,36 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @checkpoint-a11y/runner exec playwright install --with-deps chromium
+      - run: pnpm build
+      - run: pnpm test
+
+  demo-gate:
+    # The demo shop's regression build must be blocked by the gate.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @checkpoint-a11y/runner exec playwright install --with-deps chromium
+      - run: pnpm build
+      - name: Regression build must be blocked
+        working-directory: examples/demo-shop
+        run: |
+          node scripts/demo.mjs | tee demo.log
+          grep -q "Gate exit code: 1" demo.log
+          grep -q "FAILED (2 new blocking issues)" demo.log

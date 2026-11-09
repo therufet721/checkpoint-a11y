@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Trap</title>
+<style>:focus-visible { outline: 3px solid blue; }</style></head>
+<body>
+<main>
+  <h1>Trap</h1>
+  <a href="/a">First</a>
+  <div id="widget">
+    <input aria-label="Trap one" id="t1">
+    <input aria-label="Trap two" id="t2">
+  </div>
+  <a href="/b">Never reached</a>
+  <a href="/c">Also never reached</a>
+  <a href="/d">Nor this</a>
+</main>
+<script>
+  // A widget that swallows Tab: focus cycles between t1 and t2 forever.
+  document.getElementById('widget').addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    e.preventDefault();
+    (document.activeElement.id === 't1' ? document.getElementById('t2') : document.getElementById('t1')).focus();
+  });
+</script>
+</body>
+</html>

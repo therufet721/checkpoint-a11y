@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Leaky modal</title>
+<style>:focus-visible { outline: 3px solid #0050b3; } button { padding: 8px; } .m { position: fixed; inset: 20% 30%; background: #fff; border: 1px solid; }</style></head>
+<body><main><h1>Leaky modal</h1><button id="open">Open</button><a href="/x">Behind</a></main>
+<div class="m" role="dialog" aria-modal="true" aria-labelledby="t" hidden id="d"><h2 id="t">Cart</h2><button>Checkout</button></div>
+<script>document.getElementById('open').onclick = () => { const d = document.getElementById('d'); d.hidden = false; d.querySelector('button').focus(); };</script>
+</body></html>
